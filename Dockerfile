@@ -20,4 +20,4 @@ RUN echo "numpy #==1.19.1\n" \
 	 "flake8 == 3.8.4\n" \
 	 "parameterized == 0.7.4\n" > requirements.txt
 RUN pip install -r requirements.txt
-
+RUN pip install virtualenv
