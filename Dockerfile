@@ -4,8 +4,12 @@ RUN apt-get update
 RUN apt-get install --yes ghostscript xvfb
 RUN python --version
 RUN pip install --upgrade pip
+# prepare virtual environment
+ENV VIRTUAL_ENV=/opt/venv
 RUN pip install virtualenv
-RUN virtualenv /opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+# checking the requirements
 RUN echo "numpy #==1.19.1\n" \
 	 "colormap #==1.0.3\n" \
 	 "easydev #==0.9.38\n" \
@@ -21,4 +25,4 @@ RUN echo "numpy #==1.19.1\n" \
 	 "pylint == 2.6.0\n" \
 	 "flake8 == 3.8.4\n" \
 	 "parameterized == 0.7.4\n" > requirements.txt
-RUN source /opt/venv/bin/activate && pip install -r requirements.txt
+RUN pip install -r requirements.txt
