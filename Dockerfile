@@ -5,8 +5,7 @@ RUN apt-get install --yes ghostscript xvfb
 RUN python --version
 RUN pip install --upgrade pip
 RUN pip install virtualenv
-RUN virtualenv venv
-RUN source venv/bin/activate
+RUN virtualenv /opt/venv
 RUN echo "numpy #==1.19.1\n" \
 	 "colormap #==1.0.3\n" \
 	 "easydev #==0.9.38\n" \
@@ -22,4 +21,4 @@ RUN echo "numpy #==1.19.1\n" \
 	 "pylint == 2.6.0\n" \
 	 "flake8 == 3.8.4\n" \
 	 "parameterized == 0.7.4\n" > requirements.txt
-RUN pip install -r requirements.txt
+RUN source /opt/venv/bin/activate && pip install -r requirements.txt
