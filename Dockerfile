@@ -3,12 +3,12 @@ FROM continuumio/miniconda3
 RUN apt-get update
 RUN apt-get install --yes ghostscript xvfb
 RUN python --version
-RUN pip install --upgrade pip
 # prepare virtual environment
 ENV VIRTUAL_ENV=/opt/venv
 RUN pip install virtualenv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+RUN pip install --upgrade pip
 # checking the requirements
 RUN echo "numpy #==1.19.1\n" \
 	 "colormap #==1.0.3\n" \
