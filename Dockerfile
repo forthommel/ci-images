@@ -8,8 +8,8 @@ RUN apt-get install --yes libgsl0-dev
 #RUN apt-get install --yes libmuparser libmuparser-dev
 
 # ROOT installation
-ADD https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz root.tar.gz
-ADD root.tar.gz /usr/local
+ADD https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz /tmp
+ADD /tmp/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz /usr/local
 SHELL ["/bin/bash", "-c"]
 RUN ls --recursive /usr/local
 RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
