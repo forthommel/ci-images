@@ -6,7 +6,14 @@ RUN apt-get install --yes cmake g++ gfortran python-dev
 RUN apt-get install --yes libgsl0-dev
 #RUN apt-get install --yes liblhapdf0 lhapdf-pdfsets-minimal
 #RUN apt-get install --yes libmuparser libmuparser-dev
-RUN apt-get install --yes root root-dev
+
+# ROOT installation
+RUN wget https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz -o root.tar.gz
+RUN sudo tar zxf root.tar.gz -C /usr/local/
+RUN sudo chown -R `id -un`:`id -gn` /usr/local/root
+RUN chmod +x /usr/local/root/bin/thisroot.*
+RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
+
 RUN apt-get install --yes libpythia8-dev
 RUN apt-get clean
 RUN python --version
