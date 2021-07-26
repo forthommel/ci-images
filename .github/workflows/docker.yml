@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - cepgen-*
 #  release:
 #    type: [ published ]
 
