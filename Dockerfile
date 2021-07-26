@@ -8,12 +8,8 @@ RUN apt-get install --yes libgsl0-dev
 #RUN apt-get install --yes libmuparser libmuparser-dev
 
 # ROOT installation
-RUN curl -o root.tar.gz https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
-RUN sudo tar zxf root.tar.gz -C /usr/local/
-RUN sudo chown -R `id -un`:`id -gn` /usr/local/root
-RUN chmod +x /usr/local/root/bin/thisroot.*
+ADD https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz /usr/local/root
 RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
-RUN rm -f root.tar.gz
 
 RUN apt-get install --yes libpythia8-dev
 RUN apt-get clean
