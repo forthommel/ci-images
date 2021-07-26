@@ -10,6 +10,7 @@ RUN apt-get install --yes libgsl0-dev
 # ROOT installation
 ADD https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz /usr/local/root
 SHELL ["/bin/bash", "-c"]
+RUN ls --recursive /usr/local/root
 RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
 RUN source ~/.bashrc && root -v -q
 
