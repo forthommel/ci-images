@@ -9,8 +9,11 @@ on:
 jobs:
   push_to_registry:
     name: Push CI Docker image to DockerHub
-    runs-on: ${GITHUB_REF##*/}
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: Repository checkout
         uses: actions/checkout@v2
       - name: DockerHub login
@@ -22,4 +25,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: laufor/ci-images:${GITHUB_REF##*/}
+          tags: laufor/ci-images:${{ steps.extract_branch.outputs.branch }}
+    runs-on: ${{ steps.extract_branch.outputs.branch }}
