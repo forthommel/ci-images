@@ -9,7 +9,7 @@ on:
 jobs:
   push_to_registry:
     name: Push CI Docker image to DockerHub
-    runs-on: ${{ github.ref }}
+    runs-on: ${GITHUB_REF##*/}
     steps:
       - name: Repository checkout
         uses: actions/checkout@v2
