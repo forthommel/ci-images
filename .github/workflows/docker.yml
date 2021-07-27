@@ -25,5 +25,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: laufor/ci-images:${{ steps.extract_branch.outputs.branch }}
-    runs-on: ${{ steps.extract_branch.outputs.branch }}
+          tags: laufor/ci-images:${{ extract_branch.outputs.branch }}
+    runs-on: ${{ extract_branch.outputs.branch }}
