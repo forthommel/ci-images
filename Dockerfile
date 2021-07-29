@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM fedora:33
+FROM fedora:32
 RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran
 
