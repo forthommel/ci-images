@@ -6,7 +6,7 @@ RUN dnf install -y gsl gsl-devel
 RUN dnf install -y lhapdf lhapdf-devel
 
 # ROOT installation
-RUN dnf install -y root root-devel
+RUN dnf install -y root python3-root
 RUN root -v -q
 
 RUN dnf install -y pythia8-devel
