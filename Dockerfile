@@ -1,18 +1,23 @@
 # syntax=docker/dockerfile:1
-FROM fedora:33
-RUN dnf update -y
-RUN dnf install -y cmake g++ gfortran
+FROM gitlab-registry.cern.ch/ci-tools/ci-worker:cc7
+RUN yum update -y
+RUN yum group install -y "Development Tools"
+RUN yum install -y centos-release-scl
+RUN yum install -y devtoolset-7
+RUN yum install -y cmake g++ gcc-gfortran
 
 # Python installation
-RUN dnf install -y python3 python3-devel
+RUN yum install -y python3 python3-devel
 RUN python3 --version
 
-RUN dnf install -y gsl gsl-devel
-RUN dnf install -y lhapdf lhapdf-devel
+RUN yum install -y gsl gsl-devel
+RUN yum install -y lhapdf lhapdf-devel
 
 # ROOT installation
-RUN dnf install -y root root-foam python3-root
+RUN yum install -y root root-foam python3-root
 RUN root -v -q
 
-RUN dnf install -y pythia8-devel
-RUN dnf clean all
+RUN yum install -y pythia8-devel
+RUN yum clean all
+
+RUN scl enable devtoolset-7 bash
