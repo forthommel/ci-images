@@ -2,6 +2,7 @@
 FROM fedora:33
 RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran
+RUN dnf install -y copr-rpmbuild
 
 # Python installation
 RUN dnf install -y python3 python3-devel
