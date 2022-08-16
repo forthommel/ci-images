@@ -3,7 +3,7 @@ FROM gitlab-registry.cern.ch/ci-tools/ci-worker:cc7
 RUN yum update -y
 RUN yum group install -y "Development Tools"
 RUN yum install -y centos-release-scl
-RUN yum install -y devtoolset-7
+RUN yum install -y devtoolset-8
 RUN yum install -y cmake g++ gcc-gfortran
 
 # Python installation
@@ -20,4 +20,4 @@ RUN root -v -q
 RUN yum install -y pythia8-devel
 RUN yum clean all
 
-RUN scl enable devtoolset-7 bash
+RUN scl enable devtoolset-8 bash
