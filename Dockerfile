@@ -8,11 +8,15 @@ RUN yum install -y devtoolset-8
 RUN yum install -y cmake3 g++ gcc-gfortran
 RUN yum install -y ninja-build
 
+# GSL installation
+RUN yum install -y http://springdale.math.ias.edu/data/springdale/7/x86_64/os/Packages/springdale-core-7-2.sdl7.1.noarch.rpm
+RUN yum update -y
+RUN yum install -y gsl26 gsl26-devel
+
 # Python installation
 RUN yum install -y python3 python3-devel
 RUN python3 --version
 
-RUN yum install -y gsl gsl-devel
 RUN yum install -y lhapdf lhapdf-devel
 
 # ROOT installation
