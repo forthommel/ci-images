@@ -9,7 +9,8 @@ RUN yum install -y cmake3 g++ gcc-gfortran
 RUN yum install -y ninja-build
 
 # GSL installation
-RUN yum install -y http://springdale.math.ias.edu/data/springdale/7/x86_64/os/Packages/springdale-core-7-2.sdl7.1.noarch.rpm
+RUN rpm install -y http://springdale.math.ias.edu/data/springdale/7/x86_64/os/Packages/springdale-computational-7-2.sdl7.1.noarch.rpm
+RUN yum install -y springdale-computational
 RUN yum update -y
 RUN yum install -y gsl26 gsl26-devel
 
