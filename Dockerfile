@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install --yes apt-utils
 RUN apt-get install --yes cmake g++ gfortran python-dev
+RUN apt-get install --yes ninja-build
 RUN apt-get install --yes libgsl0-dev
 #RUN apt-get install --yes liblhapdf0 lhapdf-pdfsets-minimal
 #RUN apt-get install --yes libmuparser libmuparser-dev
