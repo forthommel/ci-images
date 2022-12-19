@@ -16,6 +16,6 @@ RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
 #RUN source ~/.bashrc && root -v -q
 RUN source /usr/local/root/bin/thisroot.sh && root -v -q
 
-RUN apt-get install -y libpythia8-dev
+#RUN apt-get install -y libpythia8-dev #FIXME not yet available
 RUN apt-get clean
 RUN python --version
