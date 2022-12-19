@@ -10,6 +10,7 @@ RUN apt-get install -y libgsl0-dev
 
 # ROOT installation
 RUN apt-get install -y wget binutils libx11-dev libxpm-dev libxft-dev libxext-dev python3-dev libssl-dev
+RUN ln -s /usr/bin/python3 /usr/bin/python
 SHELL ["/bin/bash", "-c"]
 RUN cd /usr/local && wget -q https://root.cern/download/root_v6.26.08.Linux-ubuntu22-x86_64-gcc11.2.tar.gz -O root.tar.gz && tar xfz root.tar.gz && rm -f root.tar.gz
 RUN echo "source /usr/local/root/bin/thisroot.sh" >> ~/.bashrc
