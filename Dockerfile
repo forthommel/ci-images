@@ -6,7 +6,7 @@ RUN yum group install -y "Development Tools"
 RUN yum install -y centos-release-scl
 RUN yum install -y devtoolset-8
 RUN yum install -y cmake3 g++ gcc-gfortran
-RUN yum install -y ninja-build
+RUN yum install -y ninja-build valgrind
 
 # GSL installation
 RUN rpm -ivvh http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-2.6-3.sdl7.2.x86_64.rpm
