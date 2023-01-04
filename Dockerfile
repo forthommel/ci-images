@@ -9,8 +9,8 @@ RUN yum install -y cmake3 g++ gcc-gfortran
 RUN yum install -y ninja-build valgrind
 
 # GSL installation
-RUN rpm -ivvh http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-2.6-3.sdl7.2.x86_64.rpm
-RUN rpm -ivvh http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-devel-2.6-3.sdl7.2.x86_64.rpm
+RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-2.6-3.sdl7.2.x86_64.rpm
+RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-devel-2.6-3.sdl7.2.x86_64.rpm
 
 # Python installation
 RUN yum install -y python3 python3-devel
