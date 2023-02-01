@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu:22.04
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git valgrind
 RUN apt-get install -y apt-utils
 RUN apt-get install -y cmake g++ gfortran
 RUN apt-get install -y ninja-build
