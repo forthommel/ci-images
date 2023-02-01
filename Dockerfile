@@ -3,14 +3,17 @@ FROM gitlab-registry.cern.ch/ci-tools/ci-worker:cc7
 RUN yum update -y
 RUN yum makecache
 RUN yum group install -y "Development Tools"
+RUN yum install -y git
 RUN yum install -y centos-release-scl
 RUN yum install -y devtoolset-8
 RUN yum install -y cmake3 g++ gcc-gfortran
 RUN yum install -y ninja-build valgrind
 
 # GSL installation
-RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-2.6-3.sdl7.2.x86_64.rpm
-RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-devel-2.6-3.sdl7.2.x86_64.rpm
+#RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-2.6-3.sdl7.2.x86_64.rpm
+#RUN yum install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Computational/gsl26-devel-2.6-3.sdl7.2.x86_64.rpm
+RUN yum install -y https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/gsl-2.5-1.el8.x86_64.rpm
+RUN yum install -y https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/gsl-devel-2.5-1.el8.x86_64.rpm
 
 # Python installation
 RUN yum install -y python3 python3-devel
