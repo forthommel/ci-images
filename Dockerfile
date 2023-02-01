@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu:20.04
 RUN apt-get update
-RUN apt-get install --yes git
+RUN apt-get install --yes git valgrind
 RUN apt-get install --yes apt-utils
 RUN apt-get install --yes cmake g++ gfortran python-dev
 RUN apt-get install --yes ninja-build
