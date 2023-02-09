@@ -11,6 +11,7 @@ RUN python3 --version
 
 # documentation generation
 RUN dnf install -y doxygen CTML-devel python3-sphinx
+RUN dnf install -y rsync
 
 RUN dnf install -y gsl gsl-devel
 RUN dnf install -y lhapdf lhapdf-devel
