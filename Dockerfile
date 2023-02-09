@@ -4,7 +4,7 @@ RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
 RUN dnf install -y copr-rpmbuild
-RUN dnf install -y CTML-devel
+RUN dnf install -y doxygen CTML-devel
 
 # Python installation
 RUN dnf install -y python3 python3-devel
