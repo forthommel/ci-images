@@ -4,11 +4,13 @@ RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
 RUN dnf install -y copr-rpmbuild
-RUN dnf install -y doxygen CTML-devel
 
 # Python installation
 RUN dnf install -y python3 python3-devel
 RUN python3 --version
+
+# documentation generation
+RUN dnf install -y doxygen CTML-devel python3-sphinx
 
 RUN dnf install -y gsl gsl-devel
 RUN dnf install -y lhapdf lhapdf-devel
