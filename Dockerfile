@@ -13,9 +13,10 @@ RUN dnf install -y gsl gsl-devel
 RUN dnf install -y lhapdf lhapdf-devel
 RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
+RUN dnf install -y CTML CTML-devel
 
 # ROOT installation
-RUN dnf install -y root root-foam python3-root
+RUN dnf install -y root-* python3-root
 RUN root -v -q
 
 RUN dnf install -y pythia8-devel
