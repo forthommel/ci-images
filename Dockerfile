@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM fedora:37
+FROM fedora:39
 RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
@@ -11,6 +11,8 @@ RUN python3 --version
 
 RUN dnf install -y gsl gsl-devel
 RUN dnf install -y lhapdf lhapdf-devel
+RUN dnf install -y HepMC HepMC-devel
+RUN dnf install -y HepMC3 HepMC3-devel
 
 # ROOT installation
 RUN dnf install -y root root-foam python3-root
