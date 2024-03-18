@@ -15,7 +15,7 @@ RUN root -v -q
 # external add-ons
 
 # physics
-RUN wget https://pythia.org/download/pythia6/pythia6428.f && gfortran -fPIC -shared pythia6428.f -o pythia6428.so
+RUN wget https://pythia.org/download/pythia6/pythia6428.f && gfortran -fPIC -shared pythia6428.f -o /usr/local/lib/libpythia6.so
 RUN dnf install -y pythia8-devel
 RUN dnf install -y lhapdf lhapdf-devel
 RUN dnf install -y HepMC HepMC-devel
