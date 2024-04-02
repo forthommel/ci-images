@@ -12,6 +12,7 @@ RUN python3 --version
 
 # physics
 RUN curl https://pythia.org/download/pythia6/pythia6428.f -o pythia6428.f && gfortran -fPIC -shared pythia6428.f -o /usr/local/lib/libpythia6.so
+RUN curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig6521.f -o herwig6521.f && curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/HERWIG65.INC -o HERWIG65.INC && curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig6521.INC -o herwig6521.inc && gfortran -fPIC -shared herwig6521.f -o /usr/local/lib/libherwig6.so
 RUN dnf install -y pythia8-devel
 RUN dnf install -y lhapdf lhapdf-devel
 RUN dnf install -y HepMC HepMC-devel
