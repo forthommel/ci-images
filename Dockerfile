@@ -18,6 +18,10 @@ RUN dnf install -y lhapdf lhapdf-devel
 RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
 
+RUN dnf install -y redhat-rpm-config
+ARG apfelxx_version=4.8.0
+RUN curl -L https://github.com/vbertone/apfelxx/archive/refs/tags/$apfelxx_version.tar.gz -o apfelxx.tar.gz && tar xvfz apfelxx.tar.gz && cd apfelxx-$apfelxx_version/ && mkdir build && cd build && cmake -GNinja .. && ninja && ninja install
+
 # ROOT
 RUN dnf install -y root-* python3-root
 RUN root -q
