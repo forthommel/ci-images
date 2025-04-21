@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM fedora:40
+FROM fedora:42
 RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
