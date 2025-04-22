@@ -25,7 +25,7 @@ RUN dnf install -y redhat-rpm-config
 # APFEL++
 #ARG apfelxx_version=4.8.0
 #RUN curl -L https://github.com/vbertone/apfelxx/archive/refs/tags/$apfelxx_version.tar.gz -o apfelxx.tar.gz && tar xvfz apfelxx.tar.gz && cd apfelxx-$apfelxx_version/ && sed -i "s/#include <functional>/#include <functional>\n#include <algorithm>/" src/kernel/matrix.cc && mkdir build && cd build && cmake -GNinja .. && ninja && ninja install
-RUN curl -L https://github.com/vbertone/apfelxx/archive/refs/heads/master.tar.gz -o apfelxx.tar.gz && tar xvfz apfelxx.tar.gz && cd apfelxx-$apfelxx_version/ && mkdir build && cd build && cmake -GNinja .. && ninja && ninja install
+RUN curl -L https://github.com/vbertone/apfelxx/archive/refs/heads/master.tar.gz -o apfelxx.tar.gz && tar xvfz apfelxx.tar.gz && cd apfelxx-master/ && mkdir build && cd build && cmake -GNinja .. && ninja && ninja install
 # CLHEP
 RUN curl -L https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.7.1.tgz -o clhep.tgz && tar xvfz clhep.tgz --strip-components 1 && cd CLHEP && mkdir build && cd build && cmake -GNinja .. && ninja && ninja install
 # ROOT
