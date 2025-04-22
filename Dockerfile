@@ -3,13 +3,13 @@ FROM fedora:40
 RUN dnf update -y
 RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
-RUN dnf install -y yaml-cpp
 
 # Python installation
 RUN dnf install -y python3 python3-devel
 RUN python3 --version
 
 # external add-ons
+RUN dnf install -y yaml-cpp-devel
 
 # physics
 RUN curl https://pythia.org/download/pythia6/pythia6428.f -o pythia6428.f && gfortran -fPIC -shared pythia6428.f -o /usr/local/lib/libpythia6.so
