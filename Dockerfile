@@ -5,7 +5,7 @@ RUN dnf install -y cmake g++ gfortran valgrind
 RUN dnf install -y ninja-build
 
 # Python installation
-RUN dnf install -y python3 python3-devel
+RUN dnf install -y python3 python3-devel pybind11-devel
 RUN python3 --version
 
 # external add-ons
