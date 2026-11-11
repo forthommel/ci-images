@@ -22,6 +22,7 @@ RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
 # Sherpa
 ARG sherpa_version=2.2.9
+RUN dnf install -y sqlite-devel
 RUN curl -L https://sherpa.hepforge.org/downloads/?f=SHERPA-MC-$sherpa_version.tar.gz -o Sherpa.tar.gz && tar xvfz Sherpa.tar.gz && cd SHERPA-MC-$sherpa_version && ./configure --prefix=/usr && make -j && make install
 
 RUN dnf install -y redhat-rpm-config
