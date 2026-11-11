@@ -14,12 +14,16 @@ RUN dnf install -y yaml-cpp-devel
 # physics
 RUN curl https://pythia8.web.cern.ch/releases-bare/pythia6/pythia6428.f -o pythia6428.f && gfortran -fPIC -shared pythia6428.f -o /usr/local/lib/libpythia6.so
 #RUN curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig6521.f -o herwig6521.f && curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/HERWIG65.INC -o HERWIG65.INC && curl https://www.hep.phy.cam.ac.uk/theory/webber/Herwig/herwig6521.INC -o herwig6521.inc && gfortran -fPIC -shared herwig6521.f -o /usr/local/lib/libherwig6.so
-RUN curl https://service-spi.web.cern.ch/service-spi/external/MCGenerators/distribution/herwig/herwig-6.521-src.tgz -o herwig6521.tgz && mkdir herwig && tar xfz herwig6521.tgz -C herwig --strip-components=2 && cd herwig && ./configure --prefix=/usr && make -j 8 && make install
+RUN curl https://service-spi.web.cern.ch/service-spi/external/MCGenerators/distribution/herwig/herwig-6.521-src.tgz -o herwig6521.tgz && mkdir herwig && tar xfz herwig6521.tgz -C herwig --strip-components=2 && cd herwig && ./configure --prefix=/usr && make -j && make install
 RUN dnf install -y pythia8-devel
 RUN dnf install -y boost-devel
 RUN dnf install -y lhapdf lhapdf-devel
 RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
+# Sherpa
+ARG sherpa_version=2.2.9
+RUN dnf install -y sqlite-devel
+RUN curl -L https://sherpa.hepforge.org/downloads/?f=SHERPA-MC-$sherpa_version.tar.gz -o Sherpa.tar.gz && tar xvfz Sherpa.tar.gz && cd SHERPA-MC-$sherpa_version && sed -i "s/#include <sys/sysctl.h>//" ATOOLS/Org/Run_Parameter.C && ./configure --prefix=/usr && make -j && make install
 
 RUN dnf install -y redhat-rpm-config
 ARG apfelxx_version=4.8.0
