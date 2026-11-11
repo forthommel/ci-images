@@ -22,7 +22,7 @@ RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
 # Sherpa
 ARG sherpa_version=1.1.3
-RUN curl -L https://sherpa.hepforge.org/downloads/?f=Sherpa-$sherpa_version.tar.gz -o Sherpa.tar.gz && tar xvfz Sherpa.tar.gz && cd SHERPA-MC-$sherpa_version && ./configure --prefix=/usr && make -j && make install
+RUN curl -L https://sherpa.hepforge.org/downloads/?f=Sherpa-$sherpa_version.tar.gz -o Sherpa.tar.gz && tar xvfz Sherpa.tar.gz && cd SHERPA-MC-$sherpa_version && && set -i "s/#include <sys/sysctl.h>//" ATOOLS/Org/Run_Parameter.C && ./configure --prefix=/usr && make -j && make install
 
 RUN dnf install -y redhat-rpm-config
 ARG apfelxx_version=4.8.0
