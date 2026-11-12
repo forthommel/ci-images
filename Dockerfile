@@ -22,7 +22,7 @@ RUN dnf install -y HepMC HepMC-devel
 RUN dnf install -y HepMC3 HepMC3-devel
 # Sherpa
 ARG sherpa_version=3.0.5
-RUN dnf install -y sqlite-devel
+RUN dnf install -y sqlite-devel libzip-devel
 RUN curl -L https://gitlab.com/sherpa-team/sherpa/-/archive/v$sherpa_version/sherpa-$sherpa_version.tar.gz?ref_type=tags -o Sherpa.tar.gz && tar xvfz Sherpa.tar.gz && cd sherpa-v$sherpa_version-* && mkdir build && cd build && cmake -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local .. && ninja && ninja install
 
 RUN dnf install -y redhat-rpm-config
